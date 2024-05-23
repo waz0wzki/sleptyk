@@ -1,0 +1,27 @@
+<nav>
+  <section class="navbar-begin">
+    <img src="assets/icons8-glasses-96.png" alt="logo" routerLink="../login" />
+    <span>ŚLEPTYK</span>
+  </section>
+
+  <section class="navbar-end">
+    @for (item of chosenLabels.values; track $index) {
+    <section class="navbar-item hover-grow" [routerLink]="navbarLinks[$index]">
+      <span>{{ item }}</span>
+      @if ($index==chosenLabels.values.length-1) {
+      <span> ({{ itemsInCart }})</span>
+      }
+    </section>
+    }
+    <section class="navbar-item" id="lang-menu">
+      <span>{{ languageShort }}</span>
+      <section class="lang-menu">
+        <ul>
+          <li class="hover-grow" (click)="changeLanguage('polish')">pl</li>
+          <li class="hover-grow" (click)="changeLanguage('english')">eng</li>
+          <li class="hover-grow" (click)="changeLanguage('french')">fr</li>
+        </ul>
+      </section>
+    </section>
+  </section>
+</nav>

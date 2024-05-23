@@ -1,0 +1,98 @@
+<main>
+  <h2>{{ chosenLabels.header }}</h2>
+  <form
+    action=""
+    [formGroup]="appointmentGroup"
+    (ngSubmit)="submitAppointment()"
+  >
+    <section class="input-section">
+      <label [for]="chosenLabels.appointmentType">{{
+        chosenLabels.appointmentType
+      }}</label>
+      <select
+        [name]="chosenLabels.appointmentType"
+        id=""
+        formControlName="appointmentType"
+      >
+        @for (item of chosenLabels.appointmentTypeOptions; track $index) {
+        <option [value]="item">{{ item }}</option>
+        }
+      </select>
+    </section>
+
+    <section class="input-section">
+      <label [for]="chosenLabels.appointmentDate">{{
+        chosenLabels.appointmentDate
+      }}</label>
+      <input
+        type="date"
+        [name]="chosenLabels.appointmentDate"
+        id=""
+        [(ngModel)]="date"
+        [min]="todayDate"
+        formControlName="appointmentDate"
+      />
+    </section>
+
+    <section class="input-section">
+      <label [for]="chosenLabels.appointmentHour">{{
+        chosenLabels.appointmentHour
+      }}</label>
+      <select
+        [name]="chosenLabels.appointmentHour"
+        id=""
+        [(ngModel)]="hour"
+        formControlName="appointmentHour"
+      >
+        <option value="12" selected>12:00</option>
+        <option value="13">13:00</option>
+        <option value="14">14:00</option>
+        <option value="15">15:00</option>
+        <option value="16">16:00</option>
+      </select>
+    </section>
+
+    <section class="input-section">
+      <label [for]="chosenLabels.appointmentName">{{
+        chosenLabels.appointmentName
+      }}</label>
+      <input
+        type="text"
+        [name]="chosenLabels.appointmentName"
+        id=""
+        formControlName="appointmentName"
+      />
+    </section>
+
+    <section class="input-section">
+      <label [for]="chosenLabels.appointmentSurname">{{
+        chosenLabels.appointmentSurname
+      }}</label>
+      <input
+        type="text"
+        [name]="chosenLabels.appointmentSurname"
+        id=""
+        formControlName="appointmentSurname"
+      />
+    </section>
+
+    <section class="input-section">
+      <label [for]="chosenLabels.appointmentPhone">{{
+        chosenLabels.appointmentPhone
+      }}</label>
+      <input
+        type="number"
+        [name]="chosenLabels.appointmentPhone"
+        id=""
+        min="0"
+        step="1"
+        formControlName="appointmentPhone"
+      />
+    </section>
+
+    <button type="submit" [disabled]="!appointmentGroup.valid" class="hover">
+      Potwierdź
+    </button>
+  </form>
+  <main></main>
+</main>

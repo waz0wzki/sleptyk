@@ -1,0 +1,22 @@
+<input
+  type="range"
+  name="distanceRange"
+  id="distance"
+  min="0.2"
+  max="0.6"
+  step="0.05"
+  (change)="setRangeValue(rangeValue)"
+  [(ngModel)]="rangeValue"
+/>
+<button (click)="setType(1)">letteros</button>
+<button (click)="setType(0)">cyfros</button>
+<button (click)="setType(2)">lapacze</button>
+@for (item of rows; track $index) {
+<div
+  class="sheet"
+  [ngStyle]="{ 'font-size': (rows.length - $index * 0.9) * rangeValue + 'em' }"
+  [style.backgroundColor]="highlightColor"
+>
+  {{ item }}
+</div>
+}

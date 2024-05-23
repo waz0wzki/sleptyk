@@ -1,0 +1,63 @@
+<main>
+  <h2>{{ chosenLabels.header1 }}</h2>
+  <form action="" [formGroup]="repairGroup" (ngSubmit)="submitRepair()">
+    <section class="input-section">
+      <label [for]="chosenLabels.repairType">{{
+        chosenLabels.repairType
+      }}</label>
+      <select
+        [name]="chosenLabels.repairType"
+        id=""
+        formControlName="repairType"
+      >
+        @for (item of chosenLabels.repairTypeOptions; track $index) {
+        <option [value]="item">{{ item }}</option>
+        }
+      </select>
+    </section>
+
+    <section class="input-section">
+      <label [for]="chosenLabels.repairDesc">{{
+        chosenLabels.repairDesc
+      }}</label>
+      <textarea
+        [name]="chosenLabels.repairDesc"
+        id=""
+        formControlName="repairDesc"
+        maxlength="100"
+        rows="5"
+      ></textarea>
+    </section>
+    <button type="submit">{{ chosenLabels.button1 }}</button>
+  </form>
+  <form action="" [formGroup]="statusGroup" (ngSubmit)="submitStatus()">
+    <h2>{{ chosenLabels.header2 }}</h2>
+    <section class="input-section">
+      <label [for]="chosenLabels.repairId">{{ chosenLabels.repairId }}</label>
+
+      <input
+        type="number"
+        [name]="chosenLabels.repairId"
+        id=""
+        min="0"
+        step="1"
+        formControlName="statusId"
+      />
+    </section>
+    <section class="input-section">
+      <label [for]="chosenLabels.repairPhone">{{
+        chosenLabels.repairPhone
+      }}</label>
+      <input
+        type="number"
+        [name]="chosenLabels.repairPhone"
+        id=""
+        min="0"
+        step="1"
+        formControlName="statusPhone"
+      />
+    </section>
+
+    <button type="submit">{{ chosenLabels.button2 }}</button>
+  </form>
+</main>

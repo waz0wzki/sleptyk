@@ -1,0 +1,9 @@
+{
+  "doctors": [
+    {
+      "doctorId": "a",
+      "doctorName": "marek",
+      "doctorSurname": "komandos"
+    }
+  ]
+}

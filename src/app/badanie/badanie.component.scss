@@ -1,0 +1,9 @@
+.sheet {
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+}
+
+.sheet:not(:hover) {
+  background: transparent !important;
+}

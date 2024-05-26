@@ -53,7 +53,7 @@ export class BadanieComponent {
   }
 
   protected rangeValue = 0.3;
-  protected highlightColor = 'yellow';
+  protected highlightColor = 'green';
 
   setRangeValue(rangeValue: any) {
     console.log(this.rangeValue);

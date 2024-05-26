@@ -11,6 +11,10 @@ import { isEmpty } from 'rxjs';
 import { APPOINTMENT_TYPE_LABELS } from '../models/appointmentType.labels';
 import { AppointmentInterface } from '../interfaces/appointment.interface';
 import { AppointmentService } from '../services/appointment.service';
+import { RepairService } from '../services/repair.service';
+import { RepairInterface } from '../interfaces/repair.interface';
+import { REPAIR_STATUS_LABELS } from '../models/repairStatus.labels';
+import { REPAIR_TYPE_LABELS } from '../models/repairType.labels';
 
 @Component({
   selector: 'app-doctor',
@@ -28,16 +32,23 @@ export class DoctorComponent {
   protected date = new Date().toISOString().split('T')[0];
   protected todayDate = new Date().toISOString().split('T')[0];
   protected hour = '';
-  protected doctors = {} as DoctorInterface[];
-  protected appointments = {} as AppointmentInterface[];
+  protected doctors = [] as DoctorInterface[];
+  protected appointments = [] as AppointmentInterface[];
   protected currentDayAppointments = [] as any;
   protected appointmentTypeLabels = APPOINTMENT_TYPE_LABELS;
   protected currentAppointmentTypeLabels = [] as any;
+  protected repairs = [] as RepairInterface[];
+  protected currentRepair = {} as RepairInterface;
+  protected repairStatusLabels = REPAIR_STATUS_LABELS;
+  protected currentRepairStatusLabels = [] as any;
+  protected repairTypeLabels = REPAIR_TYPE_LABELS;
+  protected currentRepairTypeLabels = [] as any;
 
   constructor(
     private doctorService: DoctorService,
     private languageService: LanguageService,
-    private appointmentService: AppointmentService
+    private appointmentService: AppointmentService,
+    private repairService: RepairService
   ) {}
 
   protected loginGroup = new FormGroup({
@@ -51,6 +62,9 @@ export class DoctorComponent {
   protected repairGroup = new FormGroup({
     reportId: new FormControl(''),
     reportStatus: new FormControl(''),
+    reportPhone: new FormControl(''),
+    reportDesc: new FormControl(''),
+    reportDate: new FormControl(''),
   });
 
   ngOnInit() {
@@ -71,6 +85,11 @@ export class DoctorComponent {
       this.appointments = appoints;
     });
 
+    this.repairService.getRepairs().subscribe((reps) => {
+      this.repairs = reps;
+      console.log(this.repairs);
+    });
+
     this.languageService.currentLanguage.subscribe((lang) => {
       this.language = lang;
       this.doctorLabels.forEach((element) => {
@@ -82,6 +101,18 @@ export class DoctorComponent {
       this.appointmentTypeLabels.forEach((element) => {
         if (element.language == this.language) {
           this.currentAppointmentTypeLabels = element;
+          console.log('app', element);
+        }
+      });
+      this.repairStatusLabels.forEach((element) => {
+        if (element.language == this.language) {
+          this.currentRepairStatusLabels = element;
+          console.log('eafad', element);
+        }
+      });
+      this.repairTypeLabels.forEach((element) => {
+        if (element.language == this.language) {
+          this.currentRepairTypeLabels = element;
         }
       });
       // this.changeLanguage(this.language);
@@ -135,5 +166,26 @@ export class DoctorComponent {
       }
     });
     this.appointmentService.updateAppointment(currAppointment);
+  }
+
+  findRepair() {
+    this.repairs.forEach((element) => {
+      if (element.repairId == this.repairGroup.value.reportId) {
+        this.currentRepair = element;
+        this.repairGroup.value.reportStatus = element.status;
+        this.repairGroup.value.reportPhone = element.phone;
+        this.repairGroup.value.reportDesc = element.desc;
+        this.repairGroup.value.reportDate = element.date;
+        console.log('statuso', element.status);
+      }
+    });
+  }
+
+  changeRepairStatus() {
+    if (!this.repairGroup.value.reportStatus) {
+      return;
+    }
+    this.currentRepair.status = this.repairGroup.value.reportStatus;
+    this.repairService.updateRepairs(this.currentRepair);
   }
 }

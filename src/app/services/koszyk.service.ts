@@ -5,7 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class KoszykService {
-  private itemsCountSource = new BehaviorSubject<number>(4);
+  private itemsCountSource = new BehaviorSubject<number>(0);
   currentItemsCount = this.itemsCountSource.asObservable();
 
   changeItemsCount(count: number) {

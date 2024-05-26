@@ -47,20 +47,47 @@
     }
   </section>
   <h2>{{ chosenLabels.repairHeader }}</h2>
-  <form action="">
+  <form action="" [formGroup]="repairGroup">
     <section class="input-section">
       <label for="">{{ chosenLabels.repairId }}</label>
-      <input type="number" />
+      <input type="number" formControlName="reportId" />
+    </section>
+    <button (click)="findRepair()">{{ chosenLabels.findButton }}</button>
+    <section class="input-section">
+      <label for="">{{ chosenLabels.findPhone }}</label>
+      <label for="">{{ currentRepair.phone }}</label>
+    </section>
+    <section class="input-section">
+      <label for="">{{ chosenLabels.findDescription }}</label>
+      <label for="">{{ currentRepair.desc }}</label>
+    </section>
+    <section class="input-section">
+      <label for="">{{ chosenLabels.date }}</label>
+      <label for="">{{ currentRepair.date }}</label>
     </section>
     <section class="input-section">
       <label for="">{{ chosenLabels.repairStatus }}</label>
-      <select name="" id="">
+      <label for="">{{
+        currentRepairStatusLabels.status[currentRepair.status]
+      }}</label>
+    </section>
+    <section class="input-section">
+      <label for="">{{ chosenLabels.repairType }}</label>
+      <label for="">
+        {{ currentRepairTypeLabels.type[currentRepair.type] }}
+      </label>
+    </section>
+    <section class="input-section">
+      <label for="">{{ chosenLabels.repairButton }}</label>
+      <select name="" id="" formControlName="reportStatus">
         @for (item of chosenLabels.repairStatusOptions; track $index) {
-        <option [value]="item">{{ item }}</option>
+        <option [value]="$index">{{ item }}</option>
         }
       </select>
     </section>
-    <button type="submit">{{ chosenLabels.repairButton }}</button>
+    <button type="submit" (click)="changeRepairStatus()">
+      {{ chosenLabels.repairButton }}
+    </button>
   </form>
   }
 </main>

@@ -60,5 +60,42 @@
       "patient": {},
       "status": "canceled"
     }
+  ],
+  "repairs": [
+    {
+      "id": "0",
+      "repairId": "1",
+      "date": "2024-05-26",
+      "type": null,
+      "phone": "1",
+      "status": "2",
+      "desc": "nie działa i chuj"
+    },
+    {
+      "id": "735b",
+      "date": "2024-05-26",
+      "repairId": "2024-05-260.5611553318903846",
+      "phone": "33",
+      "type": "0",
+      "desc": "obsrałem sie hehehe"
+    },
+    {
+      "id": "8b08",
+      "date": "2024-05-26",
+      "repairId": "2024-05-260.795395826390477",
+      "phone": "333",
+      "type": "1",
+      "desc": "323gadsf ",
+      "status": "0"
+    },
+    {
+      "id": "3ccf",
+      "date": "2024-05-26",
+      "repairId": "333",
+      "phone": "333",
+      "type": "0",
+      "desc": "333",
+      "status": "3"
+    }
   ]
 }

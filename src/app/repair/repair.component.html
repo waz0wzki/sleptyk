@@ -11,7 +11,7 @@
         formControlName="repairType"
       >
         @for (item of chosenLabels.repairTypeOptions; track $index) {
-        <option [value]="item">{{ item }}</option>
+        <option [value]="$index">{{ item }}</option>
         }
       </select>
     </section>
@@ -27,6 +27,10 @@
         maxlength="100"
         rows="5"
       ></textarea>
+    </section>
+    <section class="input-section">
+      <label for="">{{ chosenLabels.repairPhone }}</label>
+      <input type="text" formControlName="repairPhone" />
     </section>
     <button type="submit">{{ chosenLabels.button1 }}</button>
   </form>
@@ -58,6 +62,15 @@
       />
     </section>
 
-    <button type="submit">{{ chosenLabels.button2 }}</button>
+    <section class="input-section">
+      <label for="">{{ chosenLabels.header2 }}</label>
+      <label for="">{{
+        currentRepairStatusLabels.status[currentRepair.status]
+      }}</label>
+    </section>
+
+    <button type="submit" (click)="findRepair()">
+      {{ chosenLabels.button2 }}
+    </button>
   </form>
 </main>

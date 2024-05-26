@@ -1,14 +1,11 @@
+import { REPAIR_TYPE_LABELS } from './repairType.labels';
+
 export const REPAIR_LABELS = [
   {
     language: 'polish',
     header1: 'Serwis',
     repairType: 'Typ usterki',
-    repairTypeOptions: [
-      'Prostowanie oprawek',
-      'Naprawa pękniętych oprawek',
-      'Czyszczenie okularów',
-      'Wymiana szkieł',
-    ],
+    repairTypeOptions: REPAIR_TYPE_LABELS[0].type,
     repairDesc: 'Opis usterki',
     button1: 'Zgłoś usterkę',
     header2: 'Status zgłoszenia',
@@ -20,12 +17,7 @@ export const REPAIR_LABELS = [
     language: 'english',
     header1: 'Repair',
     repairType: 'Repair type',
-    repairTypeOptions: [
-      'Straightening the frames',
-      'Repair of cracked glasses',
-      'Cleaning',
-      'Lens change',
-    ],
+    repairTypeOptions: REPAIR_TYPE_LABELS[1].type,
     repairDesc: 'Fault description',
     button1: 'Submit fault',
     header2: 'Report status',
@@ -37,12 +29,7 @@ export const REPAIR_LABELS = [
     language: 'french',
     header1: 'Réparation',
     repairType: 'Type de défaut',
-    repairTypeOptions: [
-      'Redresser les cadres',
-      'Réparation de cadres fissurés',
-      'Nettoyer les verres',
-      'Remplacement des lentilles',
-    ],
+    repairTypeOptions: REPAIR_TYPE_LABELS[2].type,
     repairDesc: 'Description du défaut',
     button1: 'Signaler un défaut',
     header2: 'Statut du rapport',

@@ -19,5 +19,5 @@
     "titleBar.inactiveForeground": "#15202b99"
   },
   "peacock.color": "#00d1ff",
-  "workbench.colorTheme": "Brackets Dark"
+  "workbench.colorTheme": "Visual Studio Dark"
 }

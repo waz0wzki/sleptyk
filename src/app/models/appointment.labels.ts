@@ -1,9 +1,11 @@
+import { APPOINTMENT_TYPE_LABELS } from './appointmentType.labels';
+
 export const APPOINTMENT_LABELS = [
   {
     language: 'polish',
     header: 'Umów wizytę',
     appointmentType: 'Typ wizyty',
-    appointmentTypeOptions: ['Badanie wzroku', 'Naprawa', 'Dobór oprawek'],
+    appointmentTypeOptions: APPOINTMENT_TYPE_LABELS[0].type,
     appointmentDate: 'Data',
     appointmentHour: 'Godzina',
     appointmentName: 'Imię',
@@ -15,7 +17,7 @@ export const APPOINTMENT_LABELS = [
     language: 'english',
     header: 'Make an appointment',
     appointmentType: 'Type of appointment',
-    appointmentTypeOptions: ['Eye test', 'Repair', 'Rims selection'],
+    appointmentTypeOptions: APPOINTMENT_TYPE_LABELS[1].type,
     appointmentDate: 'Date',
     appointmentHour: 'Hour',
     appointmentName: 'Name',
@@ -27,11 +29,7 @@ export const APPOINTMENT_LABELS = [
     language: 'french',
     header: 'Prendre rendez-vous',
     appointmentType: 'Type de rendez-vous',
-    appointmentTypeOptions: [
-      'Examen des yeux',
-      'Réparation',
-      'Sélection de montures de lunettes',
-    ],
+    appointmentTypeOptions: APPOINTMENT_TYPE_LABELS[2].type,
     appointmentDate: 'Date',
     appointmentHour: 'Heure',
     appointmentName: 'Nom',

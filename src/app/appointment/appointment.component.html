@@ -15,7 +15,7 @@
         formControlName="appointmentType"
       >
         @for (item of chosenLabels.appointmentTypeOptions; track $index) {
-        <option [value]="item">{{ item }}</option>
+        <option [value]="$index">{{ item }}</option>
         }
       </select>
     </section>
@@ -31,6 +31,7 @@
         [(ngModel)]="date"
         [min]="todayDate"
         formControlName="appointmentDate"
+        (change)="showAppointments(date)"
       />
     </section>
 
@@ -44,11 +45,9 @@
         [(ngModel)]="hour"
         formControlName="appointmentHour"
       >
-        <option value="12" selected>12:00</option>
-        <option value="13">13:00</option>
-        <option value="14">14:00</option>
-        <option value="15">15:00</option>
-        <option value="16">16:00</option>
+        @for (item of currentDayAppointments; track $index) {
+        <option [value]="item.hour">{{ item.hour }}</option>
+        }
       </select>
     </section>
 
@@ -91,7 +90,7 @@
     </section>
 
     <button type="submit" [disabled]="!appointmentGroup.valid" class="hover">
-      Potwierdź
+      {{ chosenLabels.button }}
     </button>
   </form>
   <main></main>

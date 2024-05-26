@@ -1,1 +1,66 @@
-<main></main>
+<main>
+  <h2>{{ chosenLabels.header }}</h2>
+  @if (!loggedIn) {
+  <h2>{{ chosenLabels.loginHeader }}</h2>
+  <form action="" [formGroup]="loginGroup" (ngSubmit)="submitLogin()">
+    <section class="input-section">
+      <label for="">{{ chosenLabels.loginId }}</label>
+      <input type="number" name="" id="" formControlName="loginId" />
+    </section>
+    <button type="submit">{{ chosenLabels.loginHeader }}</button>
+  </form>
+  } @if (loggedIn) {
+  <h2>{{ chosenLabels.dateHeader }}</h2>
+  <form action="" [formGroup]="manageGroup">
+    <section class="input-section">
+      <label for="">{{ chosenLabels.dateLabel }}</label>
+      <input
+        type="date"
+        [name]="chosenLabels.date"
+        id=""
+        [min]="todayDate"
+        formControlName="manageDate"
+        [(ngModel)]="date"
+        (change)="showAppointments(date)"
+      />
+    </section>
+  </form>
+  <section class="appointments">
+    @for (item of currentDayAppointments; track $index) {
+    <section class="input-section">
+      <label for="">
+        {{ item.hour }}
+        {{ item.patient?.name }}
+        {{ item.patient?.surname }}
+      </label>
+
+      <button (click)="cancelAppointment(item.date, item.hour)">
+        {{ chosenLabels.cancelButton }}
+      </button>
+    </section>
+    <section class="input-section">
+      <label for=""
+        >{{ item.patient?.phone }}
+        {{ currentAppointmentTypeLabels.type[item.type] }}</label
+      >
+    </section>
+    }
+  </section>
+  <h2>{{ chosenLabels.repairHeader }}</h2>
+  <form action="">
+    <section class="input-section">
+      <label for="">{{ chosenLabels.repairId }}</label>
+      <input type="number" />
+    </section>
+    <section class="input-section">
+      <label for="">{{ chosenLabels.repairStatus }}</label>
+      <select name="" id="">
+        @for (item of chosenLabels.repairStatusOptions; track $index) {
+        <option [value]="item">{{ item }}</option>
+        }
+      </select>
+    </section>
+    <button type="submit">{{ chosenLabels.repairButton }}</button>
+  </form>
+  }
+</main>

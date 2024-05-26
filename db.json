@@ -1,9 +1,64 @@
 {
   "doctors": [
     {
-      "doctorId": "a",
+      "id": "0",
+      "doctorId": "3",
       "doctorName": "marek",
       "doctorSurname": "komandos"
+    }
+  ],
+  "appointments": [
+    {
+      "id": "0",
+      "date": "2024-05-25",
+      "hour": "12:00",
+      "type": 1,
+      "patient": {
+        "name": "Stevie",
+        "surname": "Wonder",
+        "phone": "123456789"
+      },
+      "status": "free"
+    },
+    {
+      "id": "1",
+      "date": "2024-05-25",
+      "hour": "13:00",
+      "type": 2,
+      "patient": {
+        "name": "Andrea",
+        "surname": "Bocelli",
+        "phone": "987654321"
+      },
+      "status": "free"
+    },
+    {
+      "id": "2",
+      "date": "2024-05-26",
+      "hour": "12:00",
+      "type": 2,
+      "patient": {
+        "name": "Stevie",
+        "surname": "Wonder",
+        "phone": "123456789"
+      },
+      "status": "confirmed"
+    },
+    {
+      "id": "3",
+      "date": "2024-05-26",
+      "hour": "13:00",
+      "type": null,
+      "patient": {},
+      "status": "free"
+    },
+    {
+      "id": "4",
+      "date": "2024-05-26",
+      "hour": "14:00",
+      "type": null,
+      "patient": {},
+      "status": "canceled"
     }
   ]
 }

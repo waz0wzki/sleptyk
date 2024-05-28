@@ -25,6 +25,7 @@ export class AppointmentComponent {
   protected hour = '';
   protected appointments = {} as AppointmentInterface[];
   protected currentDayAppointments = [] as AppointmentInterface[];
+  protected showConfirmation = true;
 
   constructor(
     private languageService: LanguageService,
@@ -44,10 +45,11 @@ export class AppointmentComponent {
     this.languageService.currentLanguage.subscribe((lang) => {
       this.language = lang;
       this.appointmentLabels.forEach((element) => {
-        if (element.language == this.language) {
-          this.chosenLabels = element;
-          console.log(element);
-        }
+        // if (element.language == this.language) {
+        //   this.chosenLabels = element;
+        //   console.log(element);
+        // }
+        this.changeLanguage(this.language);
       });
       // this.changeLanguage(this.language);
     });
@@ -60,15 +62,18 @@ export class AppointmentComponent {
 
   protected changeLanguage(language: string) {
     this.appointmentLabels.forEach((element) => {
-      if (element.language == this.language) {
+      if (element.language == language) {
         this.chosenLabels = element;
         console.log(element);
       }
     });
   }
 
+  setShowConfirmation(set: boolean) {
+    this.showConfirmation = set;
+  }
+
   protected submitAppointment() {
-    console.log('dziura na siura', this.appointmentGroup.value);
     this.addAppointment();
   }
 
@@ -82,13 +87,6 @@ export class AppointmentComponent {
     console.log('appuntamento', this.currentDayAppointments);
   }
 
-  // appointmentType: new FormControl(''),
-  // appointmentDate: new FormControl(''),
-  // appointmentHour: new FormControl(''),
-  // appointmentName: new FormControl(''),
-  // appointmentSurname: new FormControl(''),
-  // appointmentPhone: new FormControl(''),
-
   protected addAppointment() {
     let newAppointment = {} as AppointmentInterface;
     let newPatient = {} as PatientInterface;
@@ -101,20 +99,33 @@ export class AppointmentComponent {
       !this.appointmentGroup.value.appointmentPhone ||
       !this.appointmentGroup.value.appointmentType
     ) {
-      console.log('obsralem zbroje');
       return;
     }
+
     newAppointment.date = this.appointmentGroup.value.appointmentDate;
     newAppointment.hour = this.appointmentGroup.value.appointmentHour;
+    this.currentDayAppointments.forEach((element) => {
+      if (
+        element.date == newAppointment.date &&
+        element.hour == newAppointment.hour
+      ) {
+        newAppointment.id = element.id;
+      }
+    });
     newPatient.name = this.appointmentGroup.value.appointmentName;
     newPatient.surname = this.appointmentGroup.value.appointmentSurname;
-    newPatient.phone = this.appointmentGroup.value.appointmentPhone;
+    newPatient.phone = this.appointmentGroup.value.appointmentPhone.toString();
     newAppointment.patient = newPatient;
     newAppointment.status = 'confirmed';
     newAppointment.type =
       this.appointmentGroup.value.appointmentType.toString();
 
     console.log('appuntamento e qui vero', newAppointment);
+    if (this.showConfirmation) {
+      if (!confirm('are you sure')) {
+        return;
+      }
+    }
     this.appointmentService.updateAppointment(newAppointment);
   }
 }

@@ -13,31 +13,12 @@ import { KoszykService } from './services/koszyk.service';
 })
 export class AppComponent {
   title = 'sleptyk';
-  constructor(private smiec: KoszykService) {}
-  pierdolnica = 0;
+  constructor(private koszykService: KoszykService) {}
+  cartItemCount = 0;
 
   ngOnInit() {
-    this.smiec.getItemsCount().subscribe((ures: any) => {
-      // this.users = ures.user;
-      this.pierdolnica = ures;
-      console.log('smierdza mi jajka', this.pierdolnica);
+    this.koszykService.getItemsCount().subscribe((itemsCount: any) => {
+      this.cartItemCount = itemsCount;
     });
-
-    // this.smiec.currentItemsCount.subscribe(
-    //   (cwelownia: any) => (this.pierdolnica = cwelownia)
-    // );
-    // console.log('lkadsjflkajslkdjkadjkflaskldj', this.pierdolnica);
-  }
-
-  add(cwel: any) {
-    this.smiec.changeItemsCount(this.pierdolnica + 1);
-    console.log('add', this.pierdolnica);
-    console.log('cipodron', cwel.itemsInCart);
-  }
-
-  sub(cwel: any) {
-    this.smiec.changeItemsCount(this.pierdolnica - 1);
-    console.log('sub', this.pierdolnica);
-    console.log('cipodron', cwel.itemsInCart);
   }
 }

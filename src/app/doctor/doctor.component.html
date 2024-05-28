@@ -39,20 +39,25 @@
       </button>
     </section>
     <section class="input-section">
+      @if(showAppointmentDetails) {
       <label for=""
         >{{ item.patient?.phone }}
         {{ currentAppointmentTypeLabels.type[item.type] }}</label
       >
+      }
     </section>
     }
   </section>
-  <h2>{{ chosenLabels.repairHeader }}</h2>
+  <h2 (click)="setShowRepairDetails(!showRepairDetails)">
+    {{ chosenLabels.repairHeader }}
+  </h2>
   <form action="" [formGroup]="repairGroup">
     <section class="input-section">
       <label for="">{{ chosenLabels.repairId }}</label>
       <input type="number" formControlName="reportId" />
     </section>
     <button (click)="findRepair()">{{ chosenLabels.findButton }}</button>
+    @if(showRepairDetails) {
     <section class="input-section">
       <label for="">{{ chosenLabels.findPhone }}</label>
       <label for="">{{ currentRepair.phone }}</label>
@@ -77,6 +82,7 @@
         {{ currentRepairTypeLabels.type[currentRepair.type] }}
       </label>
     </section>
+    }
     <section class="input-section">
       <label for="">{{ chosenLabels.repairButton }}</label>
       <select name="" id="" formControlName="reportStatus">

@@ -1,1 +1,8 @@
-<p>cart works!</p>
+@for (item of distinctCart; track $index) {
+<section class="cart-item">
+  <img [src]="item.itemImgUrl" alt="" />
+  <section class="labels">
+    <label for="">{{ item.itemName }}</label>
+  </section>
+</section>
+}

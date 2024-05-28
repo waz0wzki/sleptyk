@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { CartItemInterface } from '../interfaces/cartItem.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,17 @@ export class KoszykService {
 
   changeItemsCount(count: number) {
     this.itemsCountSource.next(count);
-    console.log(this.itemsCountSource.getValue(), 'cipka z dzemem');
+  }
+
+  private cartSource = new BehaviorSubject<CartItemInterface[]>(
+    [] as CartItemInterface[]
+  );
+  currentCart = this.cartSource.asObservable();
+
+  changeCart(cart: CartItemInterface[]) {
+    console.log('lengtho', cart);
+    this.cartSource.next(cart);
+    this.changeItemsCount(cart.length);
   }
 
   getItemsCount(): Observable<number> {

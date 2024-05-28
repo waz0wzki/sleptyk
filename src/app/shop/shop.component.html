@@ -1,1 +1,18 @@
-<p>shop works!</p>
+<header>
+  <h2>Okulary</h2>
+  <h2>Soczewki</h2>
+  <h2>Akcesoria</h2>
+</header>
+
+<main>
+  <aside></aside>
+  <section id="main-shop">
+    @for (item of chosenCategories; track $index) {
+    <section class="cart-item hover-grow" (click)="goToCartItem(item)">
+      <img [src]="item.itemImgUrl" alt="" />
+      <span>{{ item.itemName }}</span>
+      <span>{{ item.itemValue }}</span>
+    </section>
+    }
+  </section>
+</main>

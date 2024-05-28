@@ -45,20 +45,28 @@
       "status": "confirmed"
     },
     {
-      "id": "3",
-      "date": "2024-05-26",
+      "date": "2024-05-28",
       "hour": "13:00",
-      "type": null,
-      "patient": {},
-      "status": "free"
+      "id": "3",
+      "patient": {
+        "name": "Andrea",
+        "surname": "Bocelli",
+        "phone": "32"
+      },
+      "status": "confirmed",
+      "type": "1"
     },
     {
-      "id": "4",
-      "date": "2024-05-26",
+      "date": "2024-05-28",
       "hour": "14:00",
-      "type": null,
-      "patient": {},
-      "status": "canceled"
+      "id": "4",
+      "patient": {
+        "name": "Stevie",
+        "surname": "Wonder",
+        "phone": "1234"
+      },
+      "status": "canceled",
+      "type": "0"
     }
   ],
   "repairs": [
@@ -95,7 +103,39 @@
       "phone": "333",
       "type": "0",
       "desc": "333",
-      "status": "3"
+      "status": "0"
+    }
+  ],
+  "shop": [
+    {
+      "id": "0",
+      "itemName": "okulary",
+      "itemDesc": "okulary do noszenia na oczy",
+      "itemValue": 200,
+      "itemImgUrl": "assets/icons8-glasses-96.png",
+      "itemCategory": "glasses",
+      "itemGender": "unisex",
+      "itemBrand": "paczaje"
+    },
+    {
+      "id": "1",
+      "itemName": "okularki",
+      "itemDesc": "okulary które w sumie nic nie robią",
+      "itemValue": 300,
+      "itemImgUrl": "assets/icons8-glasses-96.png",
+      "itemCategory": "glasses",
+      "itemGender": "unisex",
+      "itemBrand": "ślepaki"
+    },
+    {
+      "id": "2",
+      "itemName": "monokl",
+      "itemDesc": "po prostu monokl każdy wie co to monokl",
+      "itemValue": 200,
+      "itemImgUrl": "assets/icons8-glasses-96.png",
+      "itemCategory": "glasses",
+      "itemGender": "unisex",
+      "itemBrand": "paczaje"
     }
   ]
 }

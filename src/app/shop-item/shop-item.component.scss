@@ -2,11 +2,11 @@ main {
   display: flex;
 }
 
-.labels {
+.item-info {
   display: flex;
   flex-direction: column;
 }
 
-.label {
-  display: flex;
+img {
+  width: 300px;
 }

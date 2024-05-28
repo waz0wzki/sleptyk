@@ -7,7 +7,7 @@ import { FormControl, FormGroup, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { isEmpty } from 'rxjs';
+import { BehaviorSubject, isEmpty } from 'rxjs';
 import { APPOINTMENT_TYPE_LABELS } from '../models/appointmentType.labels';
 import { AppointmentInterface } from '../interfaces/appointment.interface';
 import { AppointmentService } from '../services/appointment.service';
@@ -15,6 +15,7 @@ import { RepairService } from '../services/repair.service';
 import { RepairInterface } from '../interfaces/repair.interface';
 import { REPAIR_STATUS_LABELS } from '../models/repairStatus.labels';
 import { REPAIR_TYPE_LABELS } from '../models/repairType.labels';
+import { IsEmptyService } from '../services/isempty.service';
 
 @Component({
   selector: 'app-doctor',
@@ -43,12 +44,20 @@ export class DoctorComponent {
   protected currentRepairStatusLabels = [] as any;
   protected repairTypeLabels = REPAIR_TYPE_LABELS;
   protected currentRepairTypeLabels = [] as any;
+  protected showConfirmation = true;
+  protected showRepairDetails = true;
+  protected showAppointmentDetails = true;
+  protected THEshowRepairDetails: BehaviorSubject<boolean> =
+    new BehaviorSubject<boolean>(this.showRepairDetails);
+  protected THEshowAppoinmentDetails: BehaviorSubject<boolean> =
+    new BehaviorSubject<boolean>(this.showAppointmentDetails);
 
   constructor(
     private doctorService: DoctorService,
     private languageService: LanguageService,
     private appointmentService: AppointmentService,
-    private repairService: RepairService
+    private repairService: RepairService,
+    private isEmptyService: IsEmptyService
   ) {}
 
   protected loginGroup = new FormGroup({
@@ -77,7 +86,7 @@ export class DoctorComponent {
       this.showAppointments(this.date);
     });
 
-    if (!this.isEmpty(this.currentDoctor)) {
+    if (!this.isEmptyService.isEmpty(this.currentDoctor)) {
       this.loggedIn = true;
     }
 
@@ -92,12 +101,8 @@ export class DoctorComponent {
 
     this.languageService.currentLanguage.subscribe((lang) => {
       this.language = lang;
-      this.doctorLabels.forEach((element) => {
-        if (element.language == this.language) {
-          this.chosenLabels = element;
-          console.log(element);
-        }
-      });
+      this.changeLanguage(this.language);
+
       this.appointmentTypeLabels.forEach((element) => {
         if (element.language == this.language) {
           this.currentAppointmentTypeLabels = element;
@@ -128,20 +133,26 @@ export class DoctorComponent {
         this.loggedIn = true;
       }
     });
+    if (!this.loggedIn) {
+      alert('wrong id');
+    }
   }
 
-  private isEmpty(obj: any) {
-    for (var prop in obj) {
-      if (Object.prototype.hasOwnProperty.call(obj, prop)) {
-        return false;
-      }
-    }
+  setShowRepairDetails(set: boolean) {
+    this.showRepairDetails = set;
+    console.log('showrepair', this.showRepairDetails);
+  }
 
-    return true;
+  setShowConfirmation(set: boolean) {
+    this.showConfirmation = set;
+  }
+
+  setShowAppointmentDetails(set: boolean) {
+    this.showAppointmentDetails = set;
   }
 
   showAppointments(date: string) {
-    if (this.isEmpty(this.appointments)) {
+    if (this.isEmptyService.isEmpty(this.appointments)) {
       return;
     }
     this.currentDayAppointments = [];
@@ -153,6 +164,15 @@ export class DoctorComponent {
           element.type,
           this.currentAppointmentTypeLabels.type[element.type]
         );
+      }
+    });
+  }
+
+  changeLanguage(language: string) {
+    this.doctorLabels.forEach((element) => {
+      if (element.language == language) {
+        this.chosenLabels = element;
+        console.log(element);
       }
     });
   }

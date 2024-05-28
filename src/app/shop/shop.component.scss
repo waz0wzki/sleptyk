@@ -1,0 +1,35 @@
+header {
+  display: flex;
+  margin: auto;
+  text-align: center;
+  gap: 50px;
+
+  justify-content: center;
+}
+
+main {
+  display: flex;
+}
+
+aside {
+  width: 30%;
+}
+
+#main-shop {
+  display: flex;
+  gap: 30px;
+}
+
+.cart-item {
+  width: 150px;
+  border: 1px solid white;
+  > img {
+    width: 75px;
+    // margin: auto;
+  }
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

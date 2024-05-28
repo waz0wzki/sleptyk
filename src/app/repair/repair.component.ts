@@ -105,7 +105,5 @@ export class RepairComponent {
     this.repairService.addRepair(newRepair);
   }
 
-  protected submitStatus() {
-    console.log('sekcja zwlok', this.statusGroup.value);
-  }
+  protected submitStatus() {}
 }

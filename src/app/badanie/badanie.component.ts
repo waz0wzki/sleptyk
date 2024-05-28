@@ -46,6 +46,8 @@ export class BadanieComponent {
           case 2:
             this.rows[i] += ' ' + this.lapacze[this.getRandom(0, 3)];
             break;
+          default:
+            this.rows[i] += ' ' + this.getRandom(0, 9);
         }
       }
     }
@@ -93,7 +95,11 @@ export class BadanieComponent {
   }
 
   setRowsCount(count: any) {
+    if (count < 2 || count > 20) {
+      return;
+    }
     this.rowsCount = count;
+    this.generateTable();
   }
 
   getType() {

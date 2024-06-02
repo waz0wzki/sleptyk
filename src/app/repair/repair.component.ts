@@ -95,7 +95,9 @@ export class RepairComponent {
     }
 
     newRepair.date = this.date;
-    newRepair.repairId = '333';
+    newRepair.repairId = Math.floor(
+      Math.random() * (9999 - 1000 + 1) + 1000
+    ).toString();
     newRepair.phone = this.repairGroup.value.repairPhone;
     newRepair.type = this.repairGroup.value.repairType;
     newRepair.desc = this.repairGroup.value.repairDesc;

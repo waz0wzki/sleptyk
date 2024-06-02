@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { CartItemInterface } from '../interfaces/cartItem.interface';
+import { ShopItemInterface } from '../interfaces/shopItem.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -11,16 +11,16 @@ export class ShopService {
 
   constructor(private http: HttpClient) {}
 
-  getShopItems(): Observable<CartItemInterface[]> {
-    return this.http.get<CartItemInterface[]>(this.url);
+  getShopItems(): Observable<ShopItemInterface[]> {
+    return this.http.get<ShopItemInterface[]>(this.url);
   }
 
-  private shopItemSource = new BehaviorSubject<CartItemInterface>(
-    {} as CartItemInterface
+  private shopItemSource = new BehaviorSubject<ShopItemInterface>(
+    {} as ShopItemInterface
   );
-  currentCartItem = this.shopItemSource.asObservable();
+  currentShopItem = this.shopItemSource.asObservable();
 
-  changeShopItem(shopItem: CartItemInterface) {
+  changeShopItem(shopItem: ShopItemInterface) {
     this.shopItemSource.next(shopItem);
   }
 }

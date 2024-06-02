@@ -22,13 +22,13 @@ export class CartComponent {
       console.log('elcarto', this.currentCart);
 
       this.localCart = JSON.parse(JSON.stringify(this.currentCart));
-      this.distinctCart = this.makeArrayUnique(this.localCart);
+      // this.distinctCart = this.makeArrayUnique(this.localCart);
       // if (this.isEmptyService.isEmpty(this.currentCart)) {
       //   return;
       // }
       // this.currentCart.forEach((element) => {
       //   this.localCart.push(element);
-      //   console.log('i have pushed', element);
+      // console.log('i have pushed', element);
       // });
     });
   }

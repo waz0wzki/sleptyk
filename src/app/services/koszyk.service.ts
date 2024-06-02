@@ -21,7 +21,13 @@ export class KoszykService {
   changeCart(cart: CartItemInterface[]) {
     console.log('lengtho', cart);
     this.cartSource.next(cart);
-    this.changeItemsCount(cart.length);
+    let amount = 0;
+    cart.forEach((element) => {
+      if (element.itemAmount) {
+        amount += element.itemAmount;
+      }
+    });
+    this.changeItemsCount(amount);
   }
 
   getItemsCount(): Observable<number> {

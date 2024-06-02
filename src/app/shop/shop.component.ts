@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { ShopService } from '../services/shop.service';
-import { CartItemInterface } from '../interfaces/cartItem.interface';
+import { ShopItemInterface } from '../interfaces/shopItem.interface';
 import { Router } from '@angular/router';
+import { SHOP_LABELS } from '../models/shop.labels';
+import { LanguageService } from '../services/language.service';
 
 @Component({
   selector: 'app-shop',
@@ -11,14 +13,21 @@ import { Router } from '@angular/router';
   styleUrl: './shop.component.scss',
 })
 export class ShopComponent {
-  constructor(private shopService: ShopService, private router: Router) {}
+  constructor(
+    private shopService: ShopService,
+    private router: Router,
+    private languageService: LanguageService
+  ) {}
 
-  protected shop = [] as CartItemInterface[];
-  protected glasses = [] as CartItemInterface[];
-  protected contacts = [] as CartItemInterface[];
-  protected accesories = [] as CartItemInterface[];
-  protected chosenCategories = [] as CartItemInterface[];
+  protected shop = [] as ShopItemInterface[];
+  protected glasses = [] as ShopItemInterface[];
+  protected contacts = [] as ShopItemInterface[];
+  protected accesories = [] as ShopItemInterface[];
+  protected chosenCategories = [] as ShopItemInterface[];
   protected chosenCategory = '';
+  protected shopLabels = SHOP_LABELS;
+  protected chosenLabels = [] as any;
+  protected language = 'english';
 
   ngOnInit() {
     this.shopService.getShopItems().subscribe((shop: any) => {
@@ -41,8 +50,21 @@ export class ShopComponent {
       console.log('glasses', this.glasses);
       this.changeCategory('glasses');
     });
+
+    this.languageService.currentLanguage.subscribe((lang) => {
+      this.language = lang;
+      this.changeLanguage(this.language);
+    });
   }
 
+  changeLanguage(language: string) {
+    this.shopLabels.forEach((element) => {
+      if (element.language == language) {
+        this.chosenLabels = element;
+        console.log(element);
+      }
+    });
+  }
   changeCategory(category: string) {
     switch (category) {
       case 'glasses':
@@ -57,8 +79,8 @@ export class ShopComponent {
     }
   }
 
-  goToCartItem(cartItem: CartItemInterface) {
-    this.shopService.changeShopItem(cartItem);
+  goToShopItem(shopItem: ShopItemInterface) {
+    this.shopService.changeShopItem(shopItem);
     this.router.navigate(['shop-item']);
   }
 }

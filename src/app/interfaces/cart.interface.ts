@@ -1,7 +1,7 @@
-import { CartItemInterface } from './cartItem.interface';
+import { ShopItemInterface } from './shopItem.interface';
 
 export interface CartInterface {
   id: string;
-  cart: CartItemInterface[];
+  cart: ShopItemInterface[];
   cartValue: number;
 }

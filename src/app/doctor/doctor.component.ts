@@ -15,7 +15,7 @@ import { RepairService } from '../services/repair.service';
 import { RepairInterface } from '../interfaces/repair.interface';
 import { REPAIR_STATUS_LABELS } from '../models/repairStatus.labels';
 import { REPAIR_TYPE_LABELS } from '../models/repairType.labels';
-import { IsEmptyService } from '../services/isempty.service';
+import { ArrayService } from '../services/array.service';
 
 @Component({
   selector: 'app-doctor',
@@ -57,7 +57,7 @@ export class DoctorComponent {
     private languageService: LanguageService,
     private appointmentService: AppointmentService,
     private repairService: RepairService,
-    private isEmptyService: IsEmptyService
+    private arrayService: ArrayService
   ) {}
 
   protected loginGroup = new FormGroup({
@@ -86,7 +86,7 @@ export class DoctorComponent {
       this.showAppointments(this.date);
     });
 
-    if (!this.isEmptyService.isEmpty(this.currentDoctor)) {
+    if (!this.arrayService.isEmpty(this.currentDoctor)) {
       this.loggedIn = true;
     }
 
@@ -152,7 +152,7 @@ export class DoctorComponent {
   }
 
   showAppointments(date: string) {
-    if (this.isEmptyService.isEmpty(this.appointments)) {
+    if (this.arrayService.isEmpty(this.appointments)) {
       return;
     }
     this.currentDayAppointments = [];

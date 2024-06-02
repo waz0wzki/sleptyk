@@ -1,8 +1,9 @@
-@for (item of distinctCart; track $index) {
+@for (item of localCart; track $index) {
 <section class="cart-item">
   <img [src]="item.itemImgUrl" alt="" />
   <section class="labels">
     <label for="">{{ item.itemName }}</label>
+    <label for="">{{ item.itemAmount }}</label>
   </section>
 </section>
 }

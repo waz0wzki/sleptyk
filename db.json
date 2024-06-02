@@ -57,7 +57,7 @@
       "type": "1"
     },
     {
-      "date": "2024-05-28",
+      "date": "2024-05-29",
       "hour": "14:00",
       "id": "4",
       "patient": {
@@ -65,7 +65,15 @@
         "surname": "Wonder",
         "phone": "1234"
       },
-      "status": "canceled",
+      "status": "free",
+      "type": ""
+    },
+    {
+      "date": "2024-05-29",
+      "hour": "15:00",
+      "id": "5",
+      "patient": "",
+      "status": "free",
       "type": "0"
     }
   ],
@@ -77,7 +85,7 @@
       "type": null,
       "phone": "1",
       "status": "2",
-      "desc": "nie działa i chuj"
+      "desc": "nie działa"
     },
     {
       "id": "735b",
@@ -85,7 +93,7 @@
       "repairId": "2024-05-260.5611553318903846",
       "phone": "33",
       "type": "0",
-      "desc": "obsrałem sie hehehe"
+      "desc": "hehe"
     },
     {
       "id": "8b08",
@@ -103,39 +111,80 @@
       "phone": "333",
       "type": "0",
       "desc": "333",
-      "status": "0"
+      "status": "2"
+    },
+    {
+      "id": "1205",
+      "date": "2024-05-29",
+      "repairId": "3933",
+      "phone": "321",
+      "type": "2",
+      "desc": "dasfad",
+      "status": "4"
     }
   ],
   "shop": [
     {
       "id": "0",
       "itemName": "okulary",
-      "itemDesc": "okulary do noszenia na oczy",
+      "itemDesc": {
+        "polish": "Okulary do noszenia na oczy",
+        "english": "Glasses to wear on your eyes",
+        "french": "Les lunnetes pour mettre dans les yeux"
+      },
       "itemValue": 200,
       "itemImgUrl": "assets/icons8-glasses-96.png",
       "itemCategory": "glasses",
       "itemGender": "unisex",
-      "itemBrand": "paczaje"
+      "itemBrand": "paczaje",
+      "itemShape": {
+        "polish": "kwadratowe",
+        "english": "square",
+        "french": "carrée"
+      },
+      "itemColor": {
+        "polish": ["czarne", "czerwone"],
+        "english": ["black", "red"],
+        "french": ["noir", "rouge"]
+      }
     },
     {
       "id": "1",
       "itemName": "okularki",
-      "itemDesc": "okulary które w sumie nic nie robią",
+      "itemDesc": {
+        "polish": "Okulary, które w sumie nic nie robią",
+        "english": "Glasses that don't really do anything",
+        "french": "Les lunettes que faites en fait rien"
+      },
       "itemValue": 300,
       "itemImgUrl": "assets/icons8-glasses-96.png",
       "itemCategory": "glasses",
       "itemGender": "unisex",
-      "itemBrand": "ślepaki"
+      "itemBrand": "ślepaki",
+      "itemColor": {
+        "polish": ["czarne"],
+        "english": ["black"],
+        "french": ["noir"]
+      }
     },
     {
       "id": "2",
       "itemName": "monokl",
-      "itemDesc": "po prostu monokl każdy wie co to monokl",
+      "itemDesc": {
+        "polish": "Po prostu monokl, każdy wie co to monokl",
+        "english": "Just monocle, everybody knows what monocle is",
+        "french": "Juste un monocle, tout le monde sait qu'est un monocle"
+      },
       "itemValue": 200,
       "itemImgUrl": "assets/icons8-glasses-96.png",
       "itemCategory": "glasses",
       "itemGender": "unisex",
-      "itemBrand": "paczaje"
+      "itemBrand": "paczaje",
+      "itemColor": {
+        "polish": ["czarne", "czerwone", "szare"],
+        "english": ["black", "red", "gray"],
+        "french": ["noir", "rouge", "gris"]
+      }
     }
   ]
 }

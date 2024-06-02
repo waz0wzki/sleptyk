@@ -3,8 +3,15 @@
   <section class="item-info">
     <span>{{ currentShopItem.itemName }}</span>
     <span>{{ currentShopItem.itemBrand }}</span>
-    <span>{{ currentShopItem.itemDesc }}</span>
+    <span>{{ currentShopItemDesc }}</span>
     <span>{{ currentShopItem.itemGender }}</span>
+    <select name="" id="" [(ngModel)]="color">
+      @for (item of currentShopItem.itemColor[language]; track $index) {
+      <option [value]="currentShopItem.itemColor.english[$index]">
+        {{ item }}
+      </option>
+      }
+    </select>
     <span>{{ currentShopItem.itemValue }}</span>
     <button (click)="addToCart()">Dodaj do koszyka</button>
     <button (click)="removeFromCart()">Usuń z koszyka</button>

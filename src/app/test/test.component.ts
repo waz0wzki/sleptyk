@@ -11,9 +11,9 @@ import { DoctorComponent } from '../doctor/doctor.component';
   imports: [BadanieComponent, FormsModule, DoctorComponent],
 })
 export class TestComponent {
-  // myRangeValue = 0.3;
-  // myHighlightColor = '';
-  // myRowsCount = 6;
+  myRangeValue = 0.3;
+  myHighlightColor = '';
+  myRowsCount = 6;
 
   myLang = 'polish';
   myShowAppointmentDetails = true;
@@ -22,6 +22,7 @@ export class TestComponent {
   changeAppoinments(item: any, value: any) {
     if (value == 'true') {
       item.setShowAppointmentDetails(true);
+      // wywołanie funkcji dostępowej dla zmiennej showAppointmentDetails na rzecz obiektu item
     } else {
       item.setShowAppointmentDetails(false);
     }

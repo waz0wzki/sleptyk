@@ -104,7 +104,17 @@ export class RepairComponent {
     newRepair.status = '0';
     console.log('newrep', newRepair);
 
+    if (!confirm('are you sure')) {
+      return;
+    }
     this.repairService.addRepair(newRepair);
+
+    this.repairService.getRepairs().subscribe((reps) => {
+      this.repairs = reps;
+    });
+    alert('Id twojej naprawy to ' + newRepair.repairId);
+    console.log(this.repairs, 'reparidos wojennocindos');
+    window.location.reload();
   }
 
   protected submitStatus() {}

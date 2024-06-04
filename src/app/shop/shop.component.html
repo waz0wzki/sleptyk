@@ -18,8 +18,9 @@
       id=""
       [placeholder]="chosenLabels.searchLabel"
       [(ngModel)]="searchValue"
+      (input)="search()"
     />
-    <button (click)="search()">search</button>
+    <!-- <button (click)="search()">search</button> -->
 
     <h3>{{ chosenLabels.filtersLabel }}</h3>
     <h3>{{ chosenLabels.filters[0] }}</h3>

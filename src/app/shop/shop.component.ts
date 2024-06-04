@@ -120,6 +120,7 @@ export class ShopComponent {
         break;
     }
     this.makeFilters();
+    this.applyFilters();
   }
 
   goToShopItem(shopItem: ShopItemInterface) {

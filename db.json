@@ -10,7 +10,7 @@
   "appointments": [
     {
       "id": "0",
-      "date": "2024-05-25",
+      "date": "2024-06-05",
       "hour": "12:00",
       "type": 1,
       "patient": {
@@ -18,11 +18,11 @@
         "surname": "Wonder",
         "phone": "123456789"
       },
-      "status": "free"
+      "status": "canceled"
     },
     {
       "id": "1",
-      "date": "2024-05-25",
+      "date": "2024-06-05",
       "hour": "13:00",
       "type": 2,
       "patient": {
@@ -30,11 +30,11 @@
         "surname": "Bocelli",
         "phone": "987654321"
       },
-      "status": "free"
+      "status": "canceled"
     },
     {
       "id": "2",
-      "date": "2024-05-26",
+      "date": "2024-06-06",
       "hour": "12:00",
       "type": 2,
       "patient": {
@@ -45,7 +45,7 @@
       "status": "confirmed"
     },
     {
-      "date": "2024-05-28",
+      "date": "2024-06-06",
       "hour": "13:00",
       "id": "3",
       "patient": {
@@ -57,21 +57,41 @@
       "type": "1"
     },
     {
-      "date": "2024-05-29",
+      "date": "2024-06-06",
       "hour": "14:00",
       "id": "4",
       "patient": {
-        "name": "Stevie",
-        "surname": "Wonder",
-        "phone": "1234"
+        "name": "faf",
+        "surname": "afa",
+        "phone": "33333"
       },
-      "status": "free",
-      "type": ""
+      "status": "confirmed",
+      "type": "1"
     },
     {
-      "date": "2024-05-29",
-      "hour": "15:00",
+      "date": "2024-06-06",
+      "hour": "17:00",
       "id": "5",
+      "patient": {
+        "name": "im",
+        "surname": "ie",
+        "phone": "1111"
+      },
+      "status": "confirmed",
+      "type": "1"
+    },
+    {
+      "date": "2024-06-06",
+      "hour": "16:00",
+      "id": "6",
+      "patient": "",
+      "status": "free",
+      "type": "0"
+    },
+    {
+      "date": "2024-06-06",
+      "hour": "17:00",
+      "id": "7",
       "patient": "",
       "status": "free",
       "type": "0"
@@ -84,13 +104,13 @@
       "date": "2024-05-26",
       "type": null,
       "phone": "1",
-      "status": "2",
+      "status": "4",
       "desc": "nie działa"
     },
     {
       "id": "735b",
       "date": "2024-05-26",
-      "repairId": "2024-05-260.5611553318903846",
+      "repairId": "2024",
       "phone": "33",
       "type": "0",
       "desc": "hehe"
@@ -98,7 +118,7 @@
     {
       "id": "8b08",
       "date": "2024-05-26",
-      "repairId": "2024-05-260.795395826390477",
+      "repairId": "0477",
       "phone": "333",
       "type": "1",
       "desc": "323gadsf ",
@@ -121,6 +141,51 @@
       "type": "2",
       "desc": "dasfad",
       "status": "4"
+    },
+    {
+      "id": "8c69",
+      "date": "2024-06-04",
+      "repairId": "7785",
+      "phone": "123",
+      "type": "2",
+      "desc": "troszku sie ubrudzilo",
+      "status": "0"
+    },
+    {
+      "id": "bbdb",
+      "date": "2024-06-04",
+      "repairId": "6070",
+      "phone": "098",
+      "type": "1",
+      "desc": "nie zauważyłem i wziąłem i usiadłem na nie",
+      "status": "0"
+    },
+    {
+      "id": "bfe3",
+      "date": "2024-06-04",
+      "repairId": "4763",
+      "phone": "345",
+      "type": "3",
+      "desc": "kupiłem nie te co trzeba",
+      "status": "0"
+    },
+    {
+      "id": "56bb",
+      "date": "2024-06-04",
+      "repairId": "9041",
+      "phone": "1",
+      "type": "1",
+      "desc": "niedźwiedź mnie zaatakował",
+      "status": "4"
+    },
+    {
+      "id": "98e0",
+      "date": "2024-06-04",
+      "repairId": "2354",
+      "phone": "567",
+      "type": "3",
+      "desc": "nic nie widze",
+      "status": "0"
     }
   ],
   "shop": [
@@ -147,9 +212,18 @@
         "french": "carrée"
       },
       "itemColor": {
-        "polish": ["czarne", "czerwone"],
-        "english": ["black", "red"],
-        "french": ["noir", "rouge"]
+        "polish": [
+          "czarne",
+          "czerwone"
+        ],
+        "english": [
+          "black",
+          "red"
+        ],
+        "french": [
+          "noir",
+          "rouge"
+        ]
       }
     },
     {
@@ -170,9 +244,15 @@
       },
       "itemBrand": "ślepaki",
       "itemColor": {
-        "polish": ["czarne"],
-        "english": ["black"],
-        "french": ["noir"]
+        "polish": [
+          "czarne"
+        ],
+        "english": [
+          "black"
+        ],
+        "french": [
+          "noir"
+        ]
       },
       "itemShape": {
         "polish": "kwadratowe",
@@ -198,9 +278,21 @@
       },
       "itemBrand": "paczaje",
       "itemColor": {
-        "polish": ["czarne", "czerwone", "szare"],
-        "english": ["black", "red", "gray"],
-        "french": ["noir", "rouge", "gris"]
+        "polish": [
+          "czarne",
+          "czerwone",
+          "szare"
+        ],
+        "english": [
+          "black",
+          "red",
+          "gray"
+        ],
+        "french": [
+          "noir",
+          "rouge",
+          "gris"
+        ]
       },
       "itemShape": {
         "polish": "kwadratowe",
@@ -226,9 +318,117 @@
       },
       "itemBrand": "oczodoły",
       "itemColor": {
-        "polish": ["przezroczyste"],
-        "english": ["transparent"],
-        "french": ["transparent"]
+        "polish": [
+          "przezroczyste"
+        ],
+        "english": [
+          "transparent"
+        ],
+        "french": [
+          "transparent"
+        ]
+      },
+      "itemShape": {
+        "polish": "okrągłe",
+        "english": "circular",
+        "french": "circulaire"
+      }
+    },
+    {
+      "id": "4",
+      "itemName": "soczewidła",
+      "itemDesc": {
+        "polish": "Jak to założysz to ci oczy wypadną",
+        "english": "If you wear it your eyes are gonna fall out",
+        "french": "Si tu le mets, tes yeux vont tomber"
+      },
+      "itemValue": 200,
+      "itemImgUrl": "assets/icons8-glasses-96.png",
+      "itemCategory": "contacts",
+      "itemGender": {
+        "polish": "mężczyzna",
+        "english": "male",
+        "french": "homme"
+      },
+      "itemBrand": "oczodoły",
+      "itemColor": {
+        "polish": [
+          "przezroczyste"
+        ],
+        "english": [
+          "transparent"
+        ],
+        "french": [
+          "transparent"
+        ]
+      },
+      "itemShape": {
+        "polish": "okrągłe",
+        "english": "circular",
+        "french": "circulaire"
+      }
+    },
+    {
+      "id": "4",
+      "itemName": "klapki na oczy",
+      "itemDesc": {
+        "polish": "Oślepniesz od tego",
+        "english": "You'll go blind because of that",
+        "french": "Tu deviendras aveugle à cause de ça "
+      },
+      "itemValue": 500,
+      "itemImgUrl": "assets/icons8-glasses-96.png",
+      "itemCategory": "contacts",
+      "itemGender": {
+        "polish": "mężczyzna",
+        "english": "male",
+        "french": "homme"
+      },
+      "itemBrand": "oczodoły",
+      "itemColor": {
+        "polish": [
+          "przezroczyste"
+        ],
+        "english": [
+          "transparent"
+        ],
+        "french": [
+          "transparent"
+        ]
+      },
+      "itemShape": {
+        "polish": "okrągłe",
+        "english": "circular",
+        "french": "circulaire"
+      }
+    },
+    {
+      "id": "5",
+      "itemName": "soczewki",
+      "itemDesc": {
+        "polish": "Chyba soczewki nie jestem pewien",
+        "english": "Maybe contacts, I'm not sure",
+        "french": "Peut être des lentilles, je ne suis pas sûr"
+      },
+      "itemValue": 200,
+      "itemImgUrl": "assets/icons8-glasses-96.png",
+      "itemCategory": "contacts",
+      "itemGender": {
+        "polish": "mężczyzna",
+        "english": "male",
+        "french": "homme"
+      },
+      "itemBrand": "oczodoły",
+      "itemColor": {
+        "polish": [
+          "przezroczyste"
+        ],
+        "english": [
+          "transparent"
+        ],
+        "french": [
+          "transparent"
+        ]
       },
       "itemShape": {
         "polish": "okrągłe",

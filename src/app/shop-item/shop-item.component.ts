@@ -73,8 +73,9 @@ export class ShopItemComponent {
         element.itemAmount &&
         element.itemColor
       ) {
+        element.itemValue += element.itemValue / element.itemAmount;
         element.itemAmount++;
-        element.itemValue += element.itemValue;
+
         isIn = true;
       }
     });

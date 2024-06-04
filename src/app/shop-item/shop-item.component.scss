@@ -1,5 +1,8 @@
 main {
   display: flex;
+  margin: auto;
+  width: 40%;
+  margin-top: 30px;
 }
 
 .item-info {
@@ -9,4 +12,17 @@ main {
 
 img {
   width: 300px;
+}
+
+.italic {
+  font-weight: lighter;
+}
+
+.row {
+  margin: 15px;
+}
+
+.addButton {
+  width: 200px;
+  padding: 5px;
 }

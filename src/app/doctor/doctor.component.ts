@@ -188,9 +188,10 @@ export class DoctorComponent {
     this.appointmentService.updateAppointment(currAppointment);
   }
 
-  findRepair() {
+  findRepair(id: any) {
     this.repairs.forEach((element) => {
-      if (element.repairId == this.repairGroup.value.reportId) {
+      // if (element.repairId == this.repairGroup.value.reportId) {
+      if (element.repairId == id) {
         this.currentRepair = element;
         this.repairGroup.value.reportStatus = element.status;
         this.repairGroup.value.reportPhone = element.phone;

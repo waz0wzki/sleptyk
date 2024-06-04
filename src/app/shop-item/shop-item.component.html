@@ -1,19 +1,39 @@
 <main>
   <img [src]="currentShopItem.itemImgUrl" alt="" />
   <section class="item-info">
-    <span>{{ currentShopItem.itemName }}</span>
-    <span>{{ currentShopItem.itemBrand }}</span>
-    <span>{{ currentShopItemDesc }}</span>
-    <span>{{ currentShopItem.itemGender[language] }}</span>
-    <select name="" id="" [(ngModel)]="color">
-      @for (item of currentShopItem.itemColor[language]; track $index) {
-      <option [value]="currentShopItem.itemColor.english[$index]">
-        {{ item }}
-      </option>
-      }
-    </select>
-    <span>{{ currentShopItem.itemValue }}</span>
-    <button (click)="addToCart()">Dodaj do koszyka</button>
+    <section class="row">
+      <span>{{ chosenShopItemLabels.name }}</span>
+      <span class="italic">{{ currentShopItem.itemName }}</span>
+    </section>
+    <section class="row">
+      <span>{{ chosenShopItemLabels.brand }}</span>
+      <span class="italic">{{ currentShopItem.itemBrand }}</span>
+    </section>
+    <section class="row">
+      <span>{{ chosenShopItemLabels.description }}</span>
+      <span class="italic">{{ currentShopItemDesc }}</span>
+    </section>
+    <section class="row">
+      <span>{{ chosenShopItemLabels.gender }}</span>
+      <span class="italic">{{ currentShopItem.itemGender[language] }}</span>
+    </section>
+    <section class="row">
+      <span>{{ chosenShopItemLabels.color }}</span>
+      <select name="" id="" [(ngModel)]="color">
+        @for (item of currentShopItem.itemColor[language]; track $index) {
+        <option [value]="currentShopItem.itemColor.english[$index]">
+          {{ item }}
+        </option>
+        }
+      </select>
+    </section>
+    <section class="row">
+      <span>{{ chosenShopItemLabels.price }}</span>
+      <span class="italic">{{ currentShopItem.itemValue }}</span>
+    </section>
+    <button (click)="addToCart()" class="addButton hover-grow">
+      {{ chosenShopItemLabels.addToCart }}
+    </button>
     <!-- <button (click)="removeFromCart()">Usuń z koszyka</button> -->
   </section>
 </main>

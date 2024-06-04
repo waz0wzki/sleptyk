@@ -28,8 +28,7 @@ export class RepairService {
     this.http.put(this.url + '/' + repair.id, repair).subscribe();
   }
 
-  addRepair(repair: RepairInterface)
-  {
-    this.http.post(this.url,repair).subscribe()
+  addRepair(repair: RepairInterface) {
+    this.http.post(this.url, repair).subscribe();
   }
 }

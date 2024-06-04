@@ -51,12 +51,19 @@
   <h2 (click)="setShowRepairDetails(!showRepairDetails)">
     {{ chosenLabels.repairHeader }}
   </h2>
+  <ul>
+    @for (item of repairs; track $index) {
+    <li>
+      <button (click)="findRepair(item.repairId)">{{ item.repairId }}</button>
+    </li>
+    }
+  </ul>
   <form action="" [formGroup]="repairGroup">
-    <section class="input-section">
+    <!-- <section class="input-section">
       <label for="">{{ chosenLabels.repairId }}</label>
       <input type="number" formControlName="reportId" />
-    </section>
-    <button (click)="findRepair()">{{ chosenLabels.findButton }}</button>
+    </section> -->
+    <!-- <button (click)="findRepair()">{{ chosenLabels.findButton }}</button> -->
     @if(showRepairDetails) {
     <section class="input-section">
       <label for="">{{ chosenLabels.findPhone }}</label>

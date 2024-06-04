@@ -1,9 +1,32 @@
-@for (item of localCart; track $index) {
-<section class="cart-item">
-  <img [src]="item.itemImgUrl" alt="" />
-  <section class="labels">
-    <label for="">{{ item.itemName }}</label>
-    <label for="">{{ item.itemAmount }}</label>
+<main>
+  <header>
+    <h2>{{ chosenLabels.header }}</h2>
+  </header>
+  @if (count==0) {
+  <h3>{{ chosenLabels.emptyHeader }}</h3>
+  } @if(count!=0){
+  <section class="header-section">
+    <h3>{{ chosenLabels.notEmptyHeader1 }}</h3>
+    <h3>{{ count }}</h3>
+    <h3>{{ chosenLabels.notEmptyHeader2 }}</h3>
   </section>
-</section>
-}
+  } @for (item of localCart; track $index) {
+  <section class="cart-item">
+    <img [src]="item.itemImgUrl" alt="" />
+    <section class="labels">
+      <label for="">{{ item.itemName }}</label>
+      <label for="">
+        <button (click)="addToCart($index)">+</button> {{ item.itemAmount }}
+        <button (click)="removeFromCart($index)">-</button>
+      </label>
+      <label for="">{{ item.itemValue }}</label>
+    </section>
+  </section>
+  }
+
+  <section class="sum-section">
+    <h3>{{ chosenLabels.sum }}</h3>
+    <h3>{{ sum }}</h3>
+  </section>
+  <button>{{ chosenLabels.buyButton }}</button>
+</main>

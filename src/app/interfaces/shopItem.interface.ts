@@ -9,13 +9,17 @@ export interface ShopItemInterface {
   itemValue: number;
   itemImgUrl: string;
   itemCategory: string;
-  itemGender: string;
+  itemGender: {
+    polish: string;
+    english: string;
+    french: string;
+  };
   itemBrand: string;
   itemAmount?: number;
   itemShape?: {
-    polish: string[];
-    english: string[];
-    french: string[];
+    polish: string;
+    english: string;
+    french: string;
   };
   itemColor?: {
     polish: string[];

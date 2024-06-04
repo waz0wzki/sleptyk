@@ -15,11 +15,19 @@ export class ArrayService {
   }
 
   isInArray(array: any, item: any) {
-    for (let element in array) {
-      if (element == item) {
+    // for (let element in array) {
+    //   if (element == item) {
+    //     console.log('true', element, 'and', item);
+    //     return true;
+    //   }
+    // }
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] == item) {
+        console.log('true', array[i], 'and', item);
         return true;
       }
     }
+    console.log(false, array, item);
     return false;
   }
 }

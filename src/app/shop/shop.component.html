@@ -12,11 +12,101 @@
 
 <main>
   <aside>
-    <input type="text" name="" id="" [placeholder]="chosenLabels.searchLabel" />
+    <input
+      type="text"
+      name=""
+      id=""
+      [placeholder]="chosenLabels.searchLabel"
+      [(ngModel)]="searchValue"
+    />
+    <button (click)="search()">search</button>
+
     <h3>{{ chosenLabels.filtersLabel }}</h3>
+    <h3>{{ chosenLabels.filters[0] }}</h3>
+    <ul>
+      @for (item of brandFilters; track $index) {
+      <li>
+        <label
+          ><input
+            type="checkbox"
+            name="brandFilters"
+            id=""
+            [checked]="item.selected"
+            (change)="changeFilters(brandFilters, $index)"
+          />{{ item.checkboxValue }}</label
+        >
+      </li>
+      }
+    </ul>
+
+    <h3>{{ chosenLabels.filters[1] }}</h3>
+    <ul>
+      @for (item of colorFilters; track $index) {
+      <li>
+        <label
+          ><input
+            type="checkbox"
+            name="colorFilters"
+            id=""
+            [checked]="item.selected"
+            [value]="item"
+            (change)="changeFilters(colorFilters, $index)"
+          />{{ item.checkboxValue }}</label
+        >
+      </li>
+      }
+    </ul>
+
+    <h3>{{ chosenLabels.filters[2] }}</h3>
+    <ul>
+      @for (item of shapeFilters; track $index) {
+      <li>
+        <label
+          ><input
+            type="checkbox"
+            name="shapeFilters"
+            id=""
+            [checked]="item.selected"
+            [value]="item"
+            (change)="changeFilters(shapeFilters, $index)"
+          />{{ item.checkboxValue }}</label
+        >
+      </li>
+      }
+    </ul>
+    <h3>{{ chosenLabels.filters[3] }}</h3>
+    <ul>
+      @for (item of genderFilters; track $index) {
+      <li>
+        <label
+          ><input
+            type="checkbox"
+            name="genderFilters"
+            id=""
+            [checked]="item.selected"
+            [value]="item"
+            (change)="changeFilters(genderFilters, $index)"
+          />{{ item.checkboxValue }}</label
+        >
+      </li>
+      }
+    </ul>
+    <h3>{{ chosenLabels.filters[4] }}</h3>
+    <ul>
+      <li>
+        <input
+          type="number"
+          name=""
+          id=""
+          [(ngModel)]="priceMin"
+          (change)="applyFilters()"
+        />-
+        <input type="number" [(ngModel)]="priceMax" (change)="applyFilters()" />
+      </li>
+    </ul>
   </aside>
   <section id="main-shop">
-    @for (item of chosenCategories; track $index) {
+    @for (item of searched; track $index) {
     <section class="cart-item hover-grow" (click)="goToShopItem(item)">
       <img [src]="item.itemImgUrl" alt="" />
       <span>{{ item.itemName }}</span>

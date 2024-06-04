@@ -135,7 +135,11 @@
       "itemValue": 200,
       "itemImgUrl": "assets/icons8-glasses-96.png",
       "itemCategory": "glasses",
-      "itemGender": "unisex",
+      "itemGender": {
+        "polish": "uniwersalne",
+        "english": "unisex",
+        "french": "unisexe"
+      },
       "itemBrand": "paczaje",
       "itemShape": {
         "polish": "kwadratowe",
@@ -159,12 +163,21 @@
       "itemValue": 300,
       "itemImgUrl": "assets/icons8-glasses-96.png",
       "itemCategory": "glasses",
-      "itemGender": "unisex",
+      "itemGender": {
+        "polish": "kobieta",
+        "english": "female",
+        "french": "femme"
+      },
       "itemBrand": "ślepaki",
       "itemColor": {
         "polish": ["czarne"],
         "english": ["black"],
         "french": ["noir"]
+      },
+      "itemShape": {
+        "polish": "kwadratowe",
+        "english": "square",
+        "french": "carrée"
       }
     },
     {
@@ -178,12 +191,49 @@
       "itemValue": 200,
       "itemImgUrl": "assets/icons8-glasses-96.png",
       "itemCategory": "glasses",
-      "itemGender": "unisex",
+      "itemGender": {
+        "polish": "mężczyzna",
+        "english": "male",
+        "french": "homme"
+      },
       "itemBrand": "paczaje",
       "itemColor": {
         "polish": ["czarne", "czerwone", "szare"],
         "english": ["black", "red", "gray"],
         "french": ["noir", "rouge", "gris"]
+      },
+      "itemShape": {
+        "polish": "kwadratowe",
+        "english": "square",
+        "french": "carrée"
+      }
+    },
+    {
+      "id": "3",
+      "itemName": "soczewki",
+      "itemDesc": {
+        "polish": "Chyba soczewki nie jestem pewien",
+        "english": "Maybe contacts, I'm not sure",
+        "french": "Peut être des lentilles, je ne suis pas sûr"
+      },
+      "itemValue": 200,
+      "itemImgUrl": "assets/icons8-glasses-96.png",
+      "itemCategory": "contacts",
+      "itemGender": {
+        "polish": "mężczyzna",
+        "english": "male",
+        "french": "homme"
+      },
+      "itemBrand": "oczodoły",
+      "itemColor": {
+        "polish": ["przezroczyste"],
+        "english": ["transparent"],
+        "french": ["transparent"]
+      },
+      "itemShape": {
+        "polish": "okrągłe",
+        "english": "circular",
+        "french": "circulaire"
       }
     }
   ]

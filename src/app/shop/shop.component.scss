@@ -18,10 +18,12 @@ aside {
 #main-shop {
   display: flex;
   gap: 30px;
+  flex-wrap: wrap;
 }
 
 .cart-item {
   width: 150px;
+  height: 150px;
   border: 1px solid white;
   > img {
     width: 75px;
@@ -32,4 +34,8 @@ aside {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+ul {
+  list-style-type: none;
 }
